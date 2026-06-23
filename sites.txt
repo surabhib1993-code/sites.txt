@@ -1,0 +1,25 @@
+# sites.txt - list of sites to monitor
+# Format (CSV): url,name,critical,expected_status,timeout_seconds
+# - url (required)
+# - name (optional human-friendly identifier)
+# - critical (true|false) - whether a failure should be treated as critical
+# - expected_status (single code like 200 or range like 200-299)
+# - timeout_seconds (optional, default handled by monitor script)
+#
+# Lines beginning with # are comments and ignored by most simple parsers.
+#
+# Examples:
+# https://example.com,Example Site,false,200,5
+# https://github.com,GitHub,true,200-299,10
+
+https://example.com,Example Site,false,200,5
+https://github.com,GitHub,true,200-299,10
+https://httpstat.us/200,HttpStat-200,false,200,5
+https://httpstat.us/503,HttpStat-503,true,503,5
+https://httpstat.us/500,HttpStat-500,true,500,5
+http://httpbin.org/status/418,I'm-a-Teapot,false,418,5
+
+# Add your internal or other monitored endpoints below (replace placeholder).
+# Example of an internal service:
+# https://my-service.example.com,My Service,true,200-299,10
+https://YOUR-SERVICE.example.com,My Internal Service,true,200-299,10
